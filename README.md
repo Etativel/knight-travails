@@ -1,11 +1,11 @@
 # Chess Knight Movement Animation
 
-This project simulates the movement of a knight on a chessboard, allowing users to click on squares to see the knight move along the valid paths in a smooth sliding animation. The knight's movement adheres to the unique "L" shape rule of chess, making it a fun and interactive way to visualize the knight's potential moves.
+This project simulates the movement of a knight on a chessboard, allowing users to click on squares to see the knight move along the valid paths in a smooth sliding animation.
 
 ## Features
 
 - **Interactive Chessboard**: A dynamic 8x8 chessboard is created where each square can be clicked.
-- **Knight Movement Animation**: The knight smoothly slides along its path rather than jumping, enhancing the visual experience.
+- **Knight Movement Animation**: The knight smoothly move to the end path, giving the visual experience.
 - **Valid Moves Calculation**: The project calculates valid knight moves based on the current position, providing users with an accurate representation of potential movements.
 
 ## Technologies Used
