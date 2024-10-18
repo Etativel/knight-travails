@@ -1,5 +1,7 @@
 # Chess Knight Movement Animation
 
+[Live Preview](https://etativel.github.io/knight-travails/)
+
 This project simulates the movement of a knight on a chessboard, allowing users to click on squares to see the knight move along the valid paths in a smooth sliding animation.
 
 ## Features
