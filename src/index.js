@@ -5,12 +5,7 @@ let startPosition = [0, 0];
 document.addEventListener("DOMContentLoaded", () => {
   createChessBoard();
   attachListener();
-});
-
-const testBtn = document.querySelector(".test-btn");
-testBtn.addEventListener("click", () => {
-  let path = knightMoves([3, 3], [7, 7]);
-  console.log(path);
+  attachIcon(startPosition);
 });
 
 const boardContainer = document.querySelector(".board-container");
@@ -53,8 +48,10 @@ function attachListener() {
       console.log([row, col]);
       let path = knightMoves(startPosition, [row, col]);
       console.log(path);
+      animateKnightMovement(path);
+
       startPosition = [row, col];
-      attachIcon();
+      //   attachIcon();
     });
   });
 }
@@ -71,4 +68,36 @@ function attachIcon() {
     knightIcon.textContent = "♞";
     knightPosition.appendChild(knightIcon);
   }
+}
+
+function animateKnightMovement(path) {
+  if (path.length === 0) return;
+
+  const knightIcon = document.querySelector(".knight");
+  const moveKnight = (i) => {
+    if (i >= path.length) return;
+
+    const [row, col] = path[i];
+    const currentPositionClass = `square-${row}-${col}`;
+    const targetSquare = document.querySelector(`.${currentPositionClass}`);
+
+    if (targetSquare) {
+      knightIcon.style.transition = "transform 0.5s ease";
+      const rect = targetSquare.getBoundingClientRect();
+      const knightRect = knightIcon.getBoundingClientRect();
+
+      const xOffset = rect.left - knightRect.left;
+      const yOffset = rect.top - knightRect.top;
+
+      knightIcon.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+
+      setTimeout(() => {
+        targetSquare.appendChild(knightIcon);
+        knightIcon.style.transform = "";
+        moveKnight(i + 1);
+      }, 500);
+    }
+  };
+
+  moveKnight(0);
 }

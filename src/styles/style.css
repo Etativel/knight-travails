@@ -21,3 +21,13 @@ body {
   align-items: center;
   /* background-color: blue; */
 }
+
+.chess-square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.knight {
+  font-size: 70px;
+}
